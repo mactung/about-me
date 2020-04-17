@@ -1,24 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import Home from './templates/Home';
+import Footer from './components/Footer';
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
+  const styles = {
+    root: {
+      background: 'linear-gradient(180deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)',
+      height: '100vh',
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={styles.root}>
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+          <Route path="/images">
+            Images
+          </Route>
+          <Route path="/about-us">
+            About us
+          </Route>
+        </Switch>
+        <Footer />
+
+      </Router>
     </div>
   );
 }
