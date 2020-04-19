@@ -6,7 +6,7 @@ import About from '../pages/About';
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
     root: {
-        minHeight: 'cacl(100vh - 120px)',
+        minHeight: 'calc(100vh - 120px)',
     }
 })
 export default function Content() {

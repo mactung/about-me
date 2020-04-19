@@ -1,13 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button, Grid } from '@material-ui/core';
-import { makeStyles, styled, useTheme } from '@material-ui/core/styles';
+import { makeStyles, styled } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
     root: {
         height: '60px',
         display: 'flex',
         justifyContent: 'flex-end',
-        paddingTop: '16px'
     },
     rightSection: {
         display: 'flex',
