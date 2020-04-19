@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Typography, Grid } from '@material-ui/core';
-import { makeStyles, styled } from '@material-ui/core/styles';
-const useStyles = makeStyles({
+import { NavLink } from 'react-router-dom';
+import { Button, Grid } from '@material-ui/core';
+import { makeStyles, styled, useTheme } from '@material-ui/core/styles';
+const useStyles = makeStyles(theme => ({
     root: {
         height: '60px',
         display: 'flex',
@@ -12,10 +12,18 @@ const useStyles = makeStyles({
     rightSection: {
         display: 'flex',
         justifyContent: 'space-around'
+    },
+    selected: {
+        background: theme.palette.action.selected
     }
-})
-const MyLink = styled(Link)({
+}))
+const MyLink = styled(NavLink)({
+    textAlign: 'center',
     textDecoration: 'none',
+})
+const MyButton = styled(Button)({
+    height: '60px',
+    width: '110px',
 })
 export default function Header() {
     const classes = useStyles();
@@ -23,9 +31,9 @@ export default function Header() {
         <Grid container className={classes.root}>
             <Grid item xs={9} className={classes.leftSection} ></Grid>
             <Grid item xs={3} className={classes.rightSection} >
-                <MyLink to="/" ><Typography variant="h6" >Home</Typography></MyLink>
-                <MyLink to="/images"> <Typography variant="h6" >Images</Typography></MyLink>
-                <MyLink to="/about-me"><Typography variant="h6" >About me</Typography></MyLink>
+                <MyLink exact activeClassName={classes.selected} to="/" ><MyButton variant="h6" >Home</MyButton></MyLink>
+                <MyLink to="/apps" activeClassName={classes.selected}> <MyButton variant="h6" >Apps</MyButton></MyLink>
+                <MyLink to="/about-me" activeClassName={classes.selected}><MyButton variant="h6" >About me</MyButton></MyLink>
             </Grid>
         </Grid>
     )
